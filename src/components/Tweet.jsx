@@ -1,7 +1,12 @@
 import ProfileImage from "./ProfileImage";
+import User from "./User";
+import Timestamp from "./Timestamp";
+import Message from "./Message";
 
+// Tweet takes "props" as a parameter
 function Tweet(props) {
   console.log(props);
+  // destructuring props to extract "tweet" property and its object
   const {
     tweet: {
       message,
@@ -18,15 +23,11 @@ function Tweet(props) {
 
       <div className="body">
         <div className="top">
-          <span className="user">
-            <span className="name">{name}</span>
-            <span className="handle">{handle}</span>
-          </span>
-
-          <span className="timestamp">{timestamp}</span>
+          <User name={name} handle={handle} />
+          <Timestamp time={timestamp} />
         </div>
 
-        <p className="message">{message}</p>
+        <Message message={message} />
 
         <div className="actions">
           {/* Font Awesome icons */}
