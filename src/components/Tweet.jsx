@@ -1,26 +1,32 @@
-function Tweet() {
+import ProfileImage from "./ProfileImage";
+
+function Tweet(props) {
+  console.log(props);
+  const {
+    tweet: {
+      message,
+      timestamp,
+      user: { handle, image, name },
+    },
+  } = props;
+  // const { message, timestamp, user } = tweet;
+  // const { handle, image, name } = user;
+
   return (
     <div className="tweet">
-      <img
-        src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/ih_logo.jpeg"
-        className="profile"
-        alt="profile"
-      />
+      <ProfileImage image={image} />
 
       <div className="body">
         <div className="top">
           <span className="user">
-            <span className="name">Ironhack</span>
-            <span className="handle">@ironhack</span>
+            <span className="name">{name}</span>
+            <span className="handle">{handle}</span>
           </span>
 
-          <span className="timestamp">Nov 30, 2020</span>
+          <span className="timestamp">{timestamp}</span>
         </div>
 
-        <p className="message">
-          On December 7th, we will be hosting a #webinar that will introduce you
-          to #SQL! Are you ready? 🚀
-        </p>
+        <p className="message">{message}</p>
 
         <div className="actions">
           {/* Font Awesome icons */}
